@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Jacob and Juliette's Wedding
+          Jacob and Juliette's Wedding in typescript!
         </p>
         <a
           className="App-link"
