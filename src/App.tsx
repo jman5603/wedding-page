@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import OurStory from './OurStory';
-import Wedding from './Wedding';
-import Registry from './Registry';
-import Travel from './Travel';
+import RequireAuth from './components/RequireAuth';
+import OurStory from './pages/OurStory';
+import Wedding from './pages/Wedding';
+import Registry from './pages/Registry';
+import Travel from './pages/Travel';
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 
 function Home() {
   return (
@@ -39,11 +40,11 @@ function App() {
         <Link to="/travel">Travel</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ourstory" element={<OurStory />} />
-        <Route path="/wedding" element={<Wedding />} />
-        <Route path="/registry" element={<Registry />} />
-        <Route path="/travel" element={<Travel />} />
+        <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+        <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />
+        <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
+        <Route path="/registry" element={<RequireAuth><Registry /></RequireAuth>} />
+        <Route path="/travel" element={<RequireAuth><Travel /></RequireAuth>} />
       </Routes>
     </Router>
   );
