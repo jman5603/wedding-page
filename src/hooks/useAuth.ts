@@ -7,9 +7,6 @@ export function useAuth() {
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    console.log('useAuth effect ran, token is', token); // Debugging line
-    // Check if token is null and print
-    console.log("is token null?", token === null);
     if (!token) {
       setIsAuthenticated(false);
       return;
@@ -20,17 +17,9 @@ export function useAuth() {
       },
     })
       .then(res => res.ok ? res.json() : Promise.reject())
-      .then(data => {
-        setIsAuthenticated(data.isAuthenticated); 
-        console.log('useAuth effect ran, data is', data);
-      })
-      .catch(() => {
-        setIsAuthenticated(false);
-        console.log("CATCH BLOCK - PROMISE REJECTED")
-      });
+      .then(data => {setIsAuthenticated(data.isAuthenticated)})
+      .catch(() => {setIsAuthenticated(false)});
   }, []);
-
-  console.log('useAuth returning:', isAuthenticated); // Debugging line
 
   return isAuthenticated;
 }

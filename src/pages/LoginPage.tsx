@@ -18,11 +18,9 @@ const LoginPage: React.FC = () => {
         body: JSON.stringify({ password }),
       });
       const data = await res.json();
-      console.log('Login response:', data); // Debugging line
       if (!res.ok) {
         setError(data.message || 'Login failed');
       } else if (data.token) {
-        console.log('Token received:', data); // Debugging line
         localStorage.setItem('jwt', data.token);
         window.location.reload(); // or redirect as needed
       } else {
