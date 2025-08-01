@@ -15,14 +15,18 @@ const LoginPage: React.FC = () => {
       const res = await fetch(`${BACKEND_API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ password }),
       });
+      const data = await res.json();
+      console.log('Login response:', data); // Debugging line
       if (!res.ok) {
-        const data = await res.json();
         setError(data.message || 'Login failed');
-      } else {
+      } else if (data.token) {
+        console.log('Token received:', data); // Debugging line
+        localStorage.setItem('jwt', data.token);
         window.location.reload(); // or redirect as needed
+      } else {
+        setError('No token received');
       }
     } catch {
       setError('Network error');
