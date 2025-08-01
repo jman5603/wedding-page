@@ -2,9 +2,11 @@
 FROM node:18-alpine AS build
 
 WORKDIR /app
+ARG REACT_APP_BACKEND_API_URL
 COPY package*.json ./
 RUN npm install
 COPY . .
+ENV REACT_APP_BACKEND_API_URL=$REACT_APP_BACKEND_API_URL
 RUN npm run build
 
 # Stage 1 - Serve Frontend Assets
