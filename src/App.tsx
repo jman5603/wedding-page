@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import RequireAuth from './components/RequireAuth';
 import OurStory from './pages/OurStory';
@@ -10,17 +10,25 @@ import Home from './pages/Home';
 import Travel from './pages/Travel';
 
 
+const NavBar: React.FC = () => {
+  const location = useLocation();
+  if (location.pathname === '/') return null;
+  return (
+    <nav className="App" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', padding: '1rem' }}>
+      <Link to="/">Home</Link>
+      <Link to="/ourstory">Our Story</Link>
+      <Link to="/wedding">Wedding</Link>
+      <Link to="/registry">Registry</Link>
+      <Link to="/travel">Travel</Link>
+      <Link to="/rsvp">RSVP</Link>
+    </nav>
+  );
+};
+
 function App() {
   return (
     <Router>
-      <nav className="App" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', padding: '1rem' }}>
-        <Link to="/">Home</Link>
-        <Link to="/ourstory">Our Story</Link>
-        <Link to="/wedding">Wedding</Link>
-        <Link to="/registry">Registry</Link>
-        <Link to="/travel">Travel</Link>
-        <Link to="/rsvp">RSVP</Link>
-      </nav>
+      <NavBar />
       <Routes>
         <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
         <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />

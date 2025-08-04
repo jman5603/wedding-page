@@ -1,0 +1,40 @@
+
+.editable-link-btn {
+  display: inline-block;
+  padding: 0.5em 2em;
+  border: 2px solid #bfa6a0;
+  border-radius: 2em;
+  background: transparent;
+  color: #4e595e;
+  font-size: 1.25rem;
+  font-family: inherit;
+  text-decoration: none;
+  text-align: center;
+  margin: 1em 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  letter-spacing: 0.05em;
+}
+.editable-link-btn:hover, .editable-link-btn:focus {
+  background: #fef3ee;
+  color: #bfa6a0;
+  border-color: #4e595e;
+}
+
+.editable-link-text {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: #4e595e;
+  font-size: 1.1rem;
+  font-family: inherit;
+  text-decoration: none;
+  margin: 0 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  letter-spacing: 0.05em;
+}
+.editable-link-text:hover, .editable-link-text:focus {
+  color: #bfa6a0;
+  text-decoration: underline;
+}
