@@ -2,7 +2,7 @@ import React from 'react';
 
 const Registry: React.FC = () => (
   <div className="Page">
-    <h1>Registry</h1>
+    <p className='title'>Registry</p>
     <p>Registry information will be available soon.</p>
   </div>
 );
