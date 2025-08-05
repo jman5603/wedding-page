@@ -15,12 +15,12 @@ const NavBar: React.FC = () => {
   if (location.pathname === '/') return null;
   return (
     <nav className="App" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', padding: '1rem' }}>
-      <Link to="/">Home</Link>
-      <Link to="/ourstory">Our Story</Link>
-      <Link to="/wedding">Wedding</Link>
-      <Link to="/registry">Registry</Link>
-      <Link to="/travel">Travel</Link>
-      <Link to="/rsvp">RSVP</Link>
+      <Link className='navbar-link' to="/">Home</Link>
+      <Link className='navbar-link' to="/ourstory">Our Story</Link>
+      <Link className='navbar-link' to="/wedding">Wedding</Link>
+      <Link className='navbar-link' to="/registry">Registry</Link>
+      <Link className='navbar-link' to="/travel">Travel</Link>
+      <Link className='navbar-link' to="/rsvp">RSVP</Link>
     </nav>
   );
 };

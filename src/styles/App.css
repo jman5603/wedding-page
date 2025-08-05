@@ -3,3 +3,53 @@
   background-color: #FEF3EE;
   color: #4E595E;
 }
+
+.Page {
+  background-color: #FEF3EE;
+  color: #4E595E;
+  min-height: calc(100vh - 51px); /* Adjusted to account for navbar */
+}
+
+.navbar-link {
+  display: inline-block;
+  background: none;
+  border: none;
+  color: #4e595e;
+  font-size: 1.1rem;
+  font-family: inherit;
+  text-decoration: none;
+  margin: 0.5em 1em;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  letter-spacing: 0.05em;
+}
+
+.navbar-link:hover, .navbar-link:focus {
+  color: #bfa6a0;
+  text-decoration: underline;
+}
+
+p {
+    margin: 0;
+    font-family: "ibarra-real-nova", sans-serif;
+}
+
+.title {
+    font-weight: 500;
+    font-style: normal;
+    font-size: calc(10px + 7vmin);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-style: normal;
+    font-size: calc(10px + 2vmin);
+}
+
+.footer {
+    font-weight: 400;
+    font-style: normal;
+    font-size: calc(10px + 1.5vmin);
+}
