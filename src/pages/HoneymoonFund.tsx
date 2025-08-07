@@ -176,7 +176,7 @@ const HoneymoonFund: React.FC = () => {
 
   return (
     <div className="Page honeymoon-fund-page">
-      <h1 className="title">Honeymoon Fund</h1>
+      <p className="title">Honeymoon Fund</p>
       
       <div className="honeymoon-content">
         <div className="honeymoon-description">
