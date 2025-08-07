@@ -1,0 +1,266 @@
+/* Honeymoon Fund Page Styles */
+.honeymoon-fund-page {
+  /* Remove max-width and margin to allow full-width background */
+  width: 100%;
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+.honeymoon-fund-page .title {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.honeymoon-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.honeymoon-description {
+  padding: 1rem;
+}
+
+.honeymoon-description h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.honeymoon-description p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.honeymoon-details {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.honeymoon-details h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.payment-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+/* Amount Selector Styles */
+.amount-selector h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.amount-input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.amount-input {
+  width: 100%;
+  padding: 12px 12px 12px 32px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #5469d4;
+}
+
+.preset-amounts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.preset-button {
+  padding: 8px 16px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.preset-button:hover {
+  border-color: #5469d4;
+  background: #f8f9ff;
+}
+
+.set-amount-button {
+  width: 100%;
+  background: #5469d4;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.set-amount-button:hover {
+  background: #4353c7;
+}
+
+/* Donor Information Styles */
+.donor-info-section {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.donor-info-section h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.donor-option {
+  margin-bottom: 0.75rem;
+}
+
+.donor-radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.donor-radio-label input[type="radio"] {
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+}
+
+.name-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.name-input {
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #5469d4;
+}
+
+.donor-info-display {
+  background: #f0f4ff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #5469d4;
+}
+
+.donor-info-display p {
+  margin: 0;
+  color: #333;
+}
+
+/* Payment Form Container */
+.payment-form-container h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.back-button {
+  width: 100%;
+  background: #f5f5f5;
+  color: #666;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #e9e9e9;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .honeymoon-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .payment-section {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .preset-amounts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .honeymoon-description {
+    padding: 0.5rem;
+  }
+  
+  .payment-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .preset-amounts {
+    grid-template-columns: 1fr;
+  }
+  
+  .honeymoon-content {
+    padding: 0 0.5rem;
+  }
+  
+  .name-inputs {
+    grid-template-columns: 1fr;
+  }
+  
+  .donor-info-section {
+    padding: 1rem;
+  }
+}

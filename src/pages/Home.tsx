@@ -1,5 +1,5 @@
 import React from 'react';
-import photo from '../couplephoto.jpg';
+import photo from '../resources/couplephoto.jpg';
 import '../styles/App.css';
 import '../styles/Home.css';
 import EditableLink from '../components/EditableLink';

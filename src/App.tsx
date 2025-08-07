@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 import RequireAuth from './components/RequireAuth';
 import OurStory from './pages/OurStory';
@@ -8,7 +10,11 @@ import Registry from './pages/Registry';
 import RSVP from './pages/RSVP';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
+import CompletionPage from './pages/CompletionPage';
+import HoneymoonFund from './pages/HoneymoonFund';
 
+// Stripe public key from environment variables
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
 
 const NavBar: React.FC = () => {
   const location = useLocation();
@@ -26,17 +32,26 @@ const NavBar: React.FC = () => {
 };
 
 function App() {
+  const appearance = {
+    theme: 'stripe' as const,
+  };
+  const loader = 'auto' as const;
+  
   return (
     <Router>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
-        <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />
-        <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
-        <Route path="/registry" element={<RequireAuth><Registry /></RequireAuth>} />
-        <Route path="/travel" element={<RequireAuth><Travel /></RequireAuth>} />
-        <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
-      </Routes>
+      <Elements options={{ appearance, loader }} stripe={stripePromise}>
+        <Routes>
+          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
+          <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />
+          <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
+          <Route path="/registry" element={<RequireAuth><Registry /></RequireAuth>} />
+          <Route path="/travel" element={<RequireAuth><Travel /></RequireAuth>} />
+          <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
+          <Route path="/completion" element={<RequireAuth><CompletionPage /></RequireAuth>} />
+          <Route path="/honeymoon-fund" element={<RequireAuth><HoneymoonFund /></RequireAuth>} />
+        </Routes>
+      </Elements>
     </Router>
   );
 }
