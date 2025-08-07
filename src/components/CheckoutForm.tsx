@@ -30,7 +30,6 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ returnUrl }) => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: returnUrl || `${window.location.origin}/completion`,
       },
     });
