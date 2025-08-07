@@ -105,7 +105,7 @@ const HoneymoonFund: React.FC = () => {
   });
 
   const createPaymentIntent = async (amountInCents: number) => {
-    const BACKEND_API_URL = 'http://localhost:3001';
+    const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
     
     try {
       const response = await fetch(`${BACKEND_API_URL}/create-payment-intent`, {
