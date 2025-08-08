@@ -1,0 +1,13 @@
+.completion {
+  text-align: center;
+  padding: 40px;
+}
+
+.completion-message {
+  color: rgb(105, 115, 134);
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc(10px + .5vmin);
+  line-height: 20px;
+  padding-top: 12px;
+}

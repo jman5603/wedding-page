@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStripe } from "@stripe/react-stripe-js";
-import '../styles/Payment.css';
+import '../styles/CompletionPage.css';
 
 const CompletionPage: React.FC = () => {
   const stripe = useStripe();
@@ -38,10 +38,21 @@ const CompletionPage: React.FC = () => {
   }, [stripe]);
 
   return (
-    <div id="completion">
-      <h1>Payment Status</h1>
-      <div id="completion-message">{message}</div>
-    </div>
+    <>
+      {message && (
+        <div className="Page">
+          <div className="completion">
+            <p className="title">Payment Status</p>
+            <div className="completion-message">{message}</div>
+          </div>
+        </div>
+      )}
+      {!message && (<div className="Page">
+        <div className="completion">
+          <p className="title">Loading...</p>
+        </div>
+      </div>)}
+    </>
   );
 };
 
