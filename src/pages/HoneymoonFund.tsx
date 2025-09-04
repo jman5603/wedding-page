@@ -277,6 +277,7 @@ const HoneymoonFund: React.FC = () => {
                 {!donorInfo.isAnonymous && (
                   <div className="name-inputs">
                     <input
+                      name='firstName'
                       type="text"
                       placeholder="First Name"
                       value={donorInfo.firstName}
@@ -284,6 +285,7 @@ const HoneymoonFund: React.FC = () => {
                       className="name-input"
                     />
                     <input
+                      name='lastName'
                       type="text"
                       placeholder="Last Name"
                       value={donorInfo.lastName}
