@@ -191,7 +191,7 @@ const HoneymoonFund: React.FC = () => {
           <div className="honeymoon-details">
             <h3>Our Honeymoon Plans</h3>
             <p>
-              We're planning a romantic getaway to [Your Destination]. Your 
+              We're planning a romantic getaway to Europe. Your 
               contribution will help us enjoy special experiences, romantic 
               dinners, and adventures that we'll treasure forever.
             </p>
