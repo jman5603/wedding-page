@@ -14,7 +14,10 @@ import CompletionPage from './pages/CompletionPage';
 import HoneymoonFund from './pages/HoneymoonFund';
 
 // Stripe public key from environment variables
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
+// Don't try to load Stripe when running under Cypress (tests) or if the key is missing.
+const stripeKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+const isCypress = typeof window !== 'undefined' && (window as any).Cypress;
+const stripePromise = (!isCypress && stripeKey) ? loadStripe(stripeKey) : null;
 
 const NavBar: React.FC = () => {
   const location = useLocation();
@@ -61,6 +64,14 @@ const NavBar: React.FC = () => {
   );
 };
 
+// AuthWrapper returns children directly in development mode so routes are unprotected during local dev.
+const AuthWrapper: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+  if (process.env.NODE_ENV === 'development') {
+    return <>{children}</>;
+  }
+  return <RequireAuth>{children}</RequireAuth>;
+};
+
 function App() {
   const appearance = {
     theme: 'stripe' as const,
@@ -70,18 +81,31 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Elements options={{ appearance, loader }} stripe={stripePromise}>
+      {stripePromise ? (
+        <Elements options={{ appearance, loader }} stripe={stripePromise}>
+          <Routes>
+            <Route path="/" element={<AuthWrapper><Home /></AuthWrapper>} />
+            <Route path="/ourstory" element={<AuthWrapper><OurStory /></AuthWrapper>} />
+            <Route path="/wedding" element={<AuthWrapper><Wedding /></AuthWrapper>} />
+            <Route path="/registry" element={<AuthWrapper><Registry /></AuthWrapper>} />
+            <Route path="/travel" element={<AuthWrapper><Travel /></AuthWrapper>} />
+            <Route path="/rsvp" element={<AuthWrapper><RSVP /></AuthWrapper>} />
+            <Route path="/completion" element={<AuthWrapper><CompletionPage /></AuthWrapper>} />
+            <Route path="/honeymoon-fund" element={<AuthWrapper><HoneymoonFund /></AuthWrapper>} />
+          </Routes>
+        </Elements>
+      ) : (
         <Routes>
-          <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
-          <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />
-          <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
-          <Route path="/registry" element={<RequireAuth><Registry /></RequireAuth>} />
-          <Route path="/travel" element={<RequireAuth><Travel /></RequireAuth>} />
-          <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
-          <Route path="/completion" element={<RequireAuth><CompletionPage /></RequireAuth>} />
-          <Route path="/honeymoon-fund" element={<RequireAuth><HoneymoonFund /></RequireAuth>} />
+          <Route path="/" element={<AuthWrapper><Home /></AuthWrapper>} />
+          <Route path="/ourstory" element={<AuthWrapper><OurStory /></AuthWrapper>} />
+          <Route path="/wedding" element={<AuthWrapper><Wedding /></AuthWrapper>} />
+          <Route path="/registry" element={<AuthWrapper><Registry /></AuthWrapper>} />
+          <Route path="/travel" element={<AuthWrapper><Travel /></AuthWrapper>} />
+          <Route path="/rsvp" element={<AuthWrapper><RSVP /></AuthWrapper>} />
+          <Route path="/completion" element={<AuthWrapper><CompletionPage /></AuthWrapper>} />
+          <Route path="/honeymoon-fund" element={<AuthWrapper><HoneymoonFund /></AuthWrapper>} />
         </Routes>
-      </Elements>
+      )}
     </Router>
   );
 }

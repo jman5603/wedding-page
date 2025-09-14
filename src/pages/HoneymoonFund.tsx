@@ -4,7 +4,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import '../styles/Payment.css';
 import '../styles/HoneymoonFund.css';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
+// Avoid loading Stripe when running under Cypress or if the publishable key is missing.
+const stripeKey = process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY;
+const isCypress = typeof window !== 'undefined' && (window as any).Cypress;
+const stripePromise = (!isCypress && stripeKey) ? loadStripe(stripeKey) : null;
 
 interface HoneymoonCheckoutFormProps {
   amount: string;
@@ -205,6 +208,7 @@ const HoneymoonFund: React.FC = () => {
               <div className="amount-input-group">
                 <span className="currency-symbol">$</span>
                 <input
+                  name="contribution-amount"
                   type="text"
                   value={amount}
                   onChange={handleAmountChange}
@@ -273,6 +277,7 @@ const HoneymoonFund: React.FC = () => {
                 {!donorInfo.isAnonymous && (
                   <div className="name-inputs">
                     <input
+                      name='firstName'
                       type="text"
                       placeholder="First Name"
                       value={donorInfo.firstName}
@@ -280,6 +285,7 @@ const HoneymoonFund: React.FC = () => {
                       className="name-input"
                     />
                     <input
+                      name='lastName'
                       type="text"
                       placeholder="Last Name"
                       value={donorInfo.lastName}
@@ -302,17 +308,24 @@ const HoneymoonFund: React.FC = () => {
             </div>
           ) : (
             clientSecret && (
-              <Elements 
-                stripe={stripePromise} 
-                options={{ clientSecret, appearance }}
-              >
-                <HoneymoonCheckoutForm 
-                  amount={amount}
-                  clientSecret={clientSecret}
-                  donorInfo={donorInfo}
-                  onBackToAmount={handleBackToAmount}
-                />
-              </Elements>
+              stripePromise ? (
+                <Elements 
+                  stripe={stripePromise} 
+                  options={{ clientSecret, appearance }}
+                >
+                  <HoneymoonCheckoutForm 
+                    amount={amount}
+                    clientSecret={clientSecret}
+                    donorInfo={donorInfo}
+                    onBackToAmount={handleBackToAmount}
+                  />
+                </Elements>
+              ) : (
+                <div className="payment-disabled">
+                  <p>Payment functionality is disabled in this environment.</p>
+                  <button onClick={handleBackToAmount} className="back-button" type="button">Back</button>
+                </div>
+              )
             )
           )}
         </div>
