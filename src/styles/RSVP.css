@@ -21,14 +21,15 @@
 }
 
 .rsvp .search-input {
-  max-width: 50vw;
-  width: 100%;
-  padding: 12px 14px;
+  max-width: 720px;
+  width: 80vw;
+  padding: 8px;
   border: 2px solid #e6e6e9;
   border-radius: 8px;
   font-size: 1rem;
   box-shadow: 0 1px 2px rgba(16,24,40,0.03);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
 }
 .rsvp .search-input:focus {
   outline: none;
@@ -36,11 +37,15 @@
   box-shadow: 0 6px 20px rgba(83,105,212,0.08);
 }
 
+.rsvp .required {
+  color: #b02a37;
+}
+
 /* Suggestion dropdown */
 .rsvp .suggestions-list {
-  margin-top: 0.5rem;
   max-width: 720px;
-  width: 100%;
+  width: 80vw;
+  padding: 8px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 30px rgba(16,24,40,0.08);

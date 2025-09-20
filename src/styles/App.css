@@ -7,7 +7,7 @@
 .Page {
   background-color: #FEF3EE;
   color: #4E595E;
-  min-height: calc(100vh - 80px); /* Adjusted to account for navbar height */
+  min-height: calc(100vh - 60px); /* Adjusted to account for navbar height */
 }
 
 /* Navigation Bar Styles */

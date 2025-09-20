@@ -124,10 +124,12 @@ const RSVP: React.FC = () => {
   const allFieldsFilled = (): boolean => {
     if (guestsFormData.length === 0) return false;
     return guestsFormData.every(g => {
-      const emailOk = typeof g.email === 'string' && g.email.trim() !== '';
+      const isPrimary = selectedPerson ? g.id === selectedPerson.id : false;
+      // Only require email for the primary guest
+      const emailOk = isPrimary ? (typeof g.email === 'string' && g.email.trim() !== '') : true;
       const attendingOk = g.attending === 'yes' || g.attending === 'no';
       const mealOk = typeof g.meal_choice === 'string' && g.meal_choice.trim() !== '';
-      // dietary_restrictions is optional now
+      // dietary_restrictions is optional
       return emailOk && attendingOk && mealOk;
     });
   };
@@ -165,7 +167,7 @@ const RSVP: React.FC = () => {
 
   return (
     <div className="Page rsvp">
-      {/* <p className='title'>RSVP</p> */}
+      <p style={{ display: 'none' }}>If you are reading this, please do not hack my wedding website. Do not attempt SQL injection. I have stored your session details to my database and I will find you. Even a private browser can not save you.</p>
       {selectedPerson ? (
         <div className="rsvp-form-container">
           <button onClick={handleBack} className="back-button">Back</button>
@@ -188,23 +190,27 @@ const RSVP: React.FC = () => {
             <form className="tab-content" onSubmit={handleSubmit}>
               {guestsFormData[activeIndex] ? (
                 <>
+                <p style={{ marginBottom: '1rem' }}>Please note: <span className="required">*</span> indicates a required field.</p>
                   <div className="form-row">
                     <label>Name</label>
                     <div className="value">{guestsFormData[activeIndex].first_name} {guestsFormData[activeIndex].last_name}</div>
                   </div>
 
                   <div className="form-row">
-                    <label htmlFor={`email-${guestsFormData[activeIndex].id}`}>Email</label>
+                    <label htmlFor={`email-${guestsFormData[activeIndex].id}`}>
+                      Email {guestsFormData[activeIndex].id === selectedPerson?.id ? <span className="required">*</span> : ''}
+                    </label>
                     <input
                       id={`email-${guestsFormData[activeIndex].id}`}
                       type="email"
                       value={guestsFormData[activeIndex].email}
                       onChange={e => updateGuestField(guestsFormData[activeIndex].id, 'email', e.target.value)}
+                      required={guestsFormData[activeIndex].id === selectedPerson?.id}
                     />
                   </div>
 
                   <div className="form-row">
-                    <label>Attending</label>
+                    <label>Attending <span className="required">*</span></label>
                     <div className="value">
                       <label>
                         <input
@@ -226,7 +232,7 @@ const RSVP: React.FC = () => {
                   </div>
 
                   <div className="form-row">
-                    <label>Meal Choice</label>
+                    <label>Meal Preference <span className="required">*</span></label>
                     <select
                       value={guestsFormData[activeIndex].meal_choice}
                       onChange={e => updateGuestField(guestsFormData[activeIndex].id, 'meal_choice', e.target.value)}
@@ -240,6 +246,7 @@ const RSVP: React.FC = () => {
                       <option value="no-preference">No preference</option>
                     </select>
                   </div>
+                  <p style={{ marginBottom: '1rem' }}>Meal preference for planning purposes only, not a binding choice.</p>
 
                   <div className="form-row">
                     <label>Dietary Restrictions</label>
@@ -299,7 +306,6 @@ const RSVP: React.FC = () => {
             value={search}
             onChange={e => setSearch(e.target.value)}
             autoComplete='off'
-            style={{ width: '80vw', padding: '8px', marginBottom: '8px' }}
           />
           {loading && <div>Searching...</div>}
           {suggestions.length > 0 && (
