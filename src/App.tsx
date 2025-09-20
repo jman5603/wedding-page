@@ -71,7 +71,7 @@ function App() {
     <Router>
       <NavBar />
       <Elements options={{ appearance, loader }} stripe={stripePromise}>
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
           <Route path="/ourstory" element={<RequireAuth><OurStory /></RequireAuth>} />
           <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
@@ -80,8 +80,8 @@ function App() {
           <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
           <Route path="/completion" element={<RequireAuth><CompletionPage /></RequireAuth>} />
           <Route path="/honeymoon-fund" element={<RequireAuth><HoneymoonFund /></RequireAuth>} />
-        </Routes> */}
-        <Routes>
+        </Routes>
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ourstory" element={<OurStory />} />
           <Route path="/wedding" element={<Wedding />} />
@@ -90,7 +90,7 @@ function App() {
           <Route path="/rsvp" element={<RSVP />} />
           <Route path="/completion" element={<CompletionPage />} />
           <Route path="/honeymoon-fund" element={<HoneymoonFund />} />
-        </Routes>
+        </Routes> */}
       </Elements>
     </Router>
   );
