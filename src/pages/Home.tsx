@@ -18,7 +18,7 @@ const Home: React.FC = () => {
             <EditableLink to="/travel" text="Travel" styleType='link' />
         </div>
         <img src={photo} className="App-logo" alt="logo" />
-        <p className='footer'>PLACEHOLDER 00, 2027</p>
+        <p className='footer'>DECEMBER 27, 2025</p>
         <p className='footer'>SAVE THE DATE</p>
       </div>
     </div>

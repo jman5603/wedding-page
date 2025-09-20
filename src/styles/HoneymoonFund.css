@@ -1,8 +1,6 @@
-/* Honeymoon Fund Page Styles (scoped to .honeymoon-fund-page) */
 .honeymoon-fund-page {
-  /* Remove max-width and margin to allow full-width background */
   width: 100%;
-  min-height: 100vh; /* Ensure it covers the full viewport height */
+  min-height: 100vh;
 }
 
 .honeymoon-fund-page .title {
