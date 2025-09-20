@@ -1,5 +1,9 @@
-/* Registry Page Styles */
-.registry-subtitle {
+.registry .title {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.registry .registry-subtitle {
   text-align: center;
   font-size: 1.1rem;
   color: #666;
@@ -9,7 +13,7 @@
   margin-right: auto;
 }
 
-.registry-grid {
+.registry .registry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
@@ -19,7 +23,7 @@
   align-items: stretch; /* Ensures all grid items have equal height */
 }
 
-.registry-item {
+.registry .registry-item {
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -30,12 +34,12 @@
   height: 100%;
 }
 
-.registry-item:hover {
+.registry .registry-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.registry-item-image {
+.registry .registry-item-image {
   height: 150px;
   overflow: hidden;
   background: #f5f5f5;
@@ -44,26 +48,26 @@
   justify-content: center;
 }
 
-.registry-item-image img {
+.registry .registry-item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.registry-item-content {
+.registry .registry-item-content {
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.registry-item-content h3 {
+.registry .registry-item-content h3 {
   margin: 0 0 0.25rem 0;
   color: #333;
   font-size: 1.1rem;
 }
 
-.registry-item-content p {
+.registry .registry-item-content p {
   color: #666;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
@@ -71,7 +75,7 @@
   font-size: 0.9rem;
 }
 
-.registry-button {
+.registry .registry-button {
   display: inline-block;
   background: #5469d4;
   color: white;
@@ -89,7 +93,7 @@
   font-size: 0.9rem;
 }
 
-.registry-button:hover {
+.registry .registry-button:hover {
   background: #4353c7;
   text-decoration: none;
   color: white;
@@ -97,18 +101,18 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .registry-grid {
+  .registry .registry-grid {
     grid-template-columns: 1fr;
     padding: 0.5rem;
   }
   
-  .registry-item-content {
+  .registry .registry-item-content {
     padding: 0.5rem;
   }
 }
 
 /* Purchase Dialog Styles */
-.purchase-dialog-overlay {
+.registry .purchase-dialog-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -122,7 +126,7 @@
   padding: 1rem;
 }
 
-.purchase-dialog {
+.registry .purchase-dialog {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
@@ -132,24 +136,24 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.purchase-dialog h3 {
+.registry .purchase-dialog h3 {
   margin-bottom: 1rem;
   color: #333;
 }
 
-.purchase-dialog p {
+.registry .purchase-dialog p {
   margin-bottom: 1.5rem;
   color: #666;
 }
 
-.purchase-dialog-buttons {
+.registry .purchase-dialog-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.purchase-dialog-button {
+.registry .purchase-dialog-button {
   height: 48px;
   white-space: nowrap;
   min-width: 150px;
@@ -157,35 +161,35 @@
   max-width: 200px;
 }
 
-.purchase-dialog-button.confirm {
+.registry .purchase-dialog-button.confirm {
   background-color: #27ae60;
 }
 
-.purchase-dialog-button.confirm:hover {
+.registry .purchase-dialog-button.confirm:hover {
   background-color: #229954;
 }
 
-.purchase-dialog-button.cancel {
+.registry .purchase-dialog-button.cancel {
   background-color: #e74c3c;
 }
 
-.purchase-dialog-button.cancel:hover {
+.registry .purchase-dialog-button.cancel:hover {
   background-color: #c0392b;
 }
 
 /* Mobile responsive for dialog */
 @media (max-width: 480px) {
-  .purchase-dialog {
+  .registry .purchase-dialog {
     padding: 1.5rem;
     margin: 1rem;
   }
   
-  .purchase-dialog-buttons {
+  .registry .purchase-dialog-buttons {
     flex-direction: column;
     gap: 0.75rem;
   }
   
-  .purchase-dialog-button {
+  .registry .purchase-dialog-button {
     min-width: 100%;
     max-width: none;
   }

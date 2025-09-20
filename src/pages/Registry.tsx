@@ -156,7 +156,7 @@ const Registry: React.FC = () => {
   }
 
   return (
-    <div className="Page">
+    <div className="Page registry">
       <p className='title'>Our Wedding Registry</p>
       <p className="registry-subtitle">Thank you for celebrating with us! Your presence is the greatest gift, but if you'd like to contribute to our new life together, here are some ways to help:</p>
       
