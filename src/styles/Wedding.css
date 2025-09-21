@@ -1,0 +1,18 @@
+.wedding {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wedding .content {
+  max-width: 720px;
+  width: 80vw;
+  padding-bottom: 2rem;
+}
+
+.wedding .content iframe {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+}

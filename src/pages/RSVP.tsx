@@ -154,17 +154,6 @@ const RSVP: React.FC = () => {
     setSubmitting(false);
   };
 
-  if (!process.env.REACT_APP_RSVP_ENABLED) {
-    return (
-      <div className="Page rsvp">
-        <p className='title'>RSVP</p>
-        <div className="coming-soon">
-          RSVP functionality is coming soon! Please check back later.
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="Page rsvp">
       <p style={{ display: 'none' }}>If you are reading this, please do not hack my wedding website. Do not attempt SQL injection. I have stored your session details to my database and I will find you. Even a private browser can not save you.</p>
@@ -231,7 +220,7 @@ const RSVP: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="form-row">
+                  {/* <div className="form-row">
                     <label>Meal Preference <span className="required">*</span></label>
                     <select
                       value={guestsFormData[activeIndex].meal_choice}
@@ -245,8 +234,8 @@ const RSVP: React.FC = () => {
                       <option value="bbq-chicken">BBQ Chicken</option>
                       <option value="no-preference">No preference</option>
                     </select>
-                  </div>
-                  <p style={{ marginBottom: '1rem' }}>Meal preference for planning purposes only, not a binding choice.</p>
+                  </div> */}
+                  <p style={{ marginBottom: '1rem' }}>We have not yet finalized meal options, but we will update you soon!</p>
 
                   <div className="form-row">
                     <label>Dietary Restrictions</label>
