@@ -128,9 +128,10 @@ const RSVP: React.FC = () => {
       // Only require email for the primary guest
       const emailOk = isPrimary ? (typeof g.email === 'string' && g.email.trim() !== '') : true;
       const attendingOk = g.attending === 'yes' || g.attending === 'no';
-      const mealOk = typeof g.meal_choice === 'string' && g.meal_choice.trim() !== '';
+      // const mealOk = typeof g.meal_choice === 'string' && g.meal_choice.trim() !== '';
       // dietary_restrictions is optional
-      return emailOk && attendingOk && mealOk;
+      // return emailOk && attendingOk && mealOk;
+      return emailOk && attendingOk;
     });
   };
 
