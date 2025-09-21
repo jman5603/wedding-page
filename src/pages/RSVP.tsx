@@ -142,10 +142,19 @@ const RSVP: React.FC = () => {
     setSubmitError(null);
     setSubmitSuccess(null);
     try {
+      // Convert attending 'yes'/'no' into boolean is_attending for the API
+      const payloadGuests = guestsFormData.map(g => {
+        const { attending, ...rest } = g as any;
+        return {
+          ...rest,
+          is_attending: attending === 'yes'
+        };
+      });
+
       const response = await fetch(`${BACKEND_API_URL}/api/submit-rsvp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ guests: guestsFormData }),
+        body: JSON.stringify({ guests: payloadGuests }),
       });
       if (!response.ok) throw new Error('Failed to submit RSVP');
       setSubmitSuccess('RSVP submitted successfully. Thank you!');
