@@ -31,7 +31,7 @@ const Wedding: React.FC = () => (
 
       <section className="practical-info">
         <h3>Dress Code</h3>
-        <p>Semi-formal attire. We recommend warm layers for outdoor photos — Michigan evenings in December can be chilly. Please no velvet!</p>
+        <p>Semi-formal attire. We recommend warm layers for outdoor photos — Michigan evenings in December can be chilly. The colors we have chosen for our wedding are pink and green, so feel free to include these colors in your outfit. (Please no velvet materials)</p>
 
         <h3>Parking & Transportation</h3>
         <p>On-site parking is available at the Lincoln Event Center.</p>

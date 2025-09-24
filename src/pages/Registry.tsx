@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Registry.css';
 import honeymoon from '../resources/honeymood-fund.jpg';
+import venmo from '../resources/venmo.png';
 
 interface RegistryItem {
   id: string | number;
@@ -26,8 +27,18 @@ const staticRegistryItems: RegistryItem[] = [
     image: honeymoon,
     link: '/honeymoon-fund',
     isExternal: false
+  },
+  {
+    id: 'cash-gift',
+    title: 'Cash Gift',
+    description: 'A cash gift is the perfect way to help us start our new life together',
+    image: venmo,
+    link: 'https://venmo.com/u/JacobHakala16',
+    isExternal: true
   }
 ];
+
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
 
 const Registry: React.FC = () => {
   const [registryItems, setRegistryItems] = useState<RegistryItem[]>(staticRegistryItems);
@@ -35,8 +46,6 @@ const Registry: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [showPurchaseDialog, setShowPurchaseDialog] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState<string | number | null>(null);
-
-  const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
 
   useEffect(() => {
     const fetchRegistryItems = async () => {

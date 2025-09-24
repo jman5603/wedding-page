@@ -15,9 +15,9 @@
 
 .registry .registry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  max-width: 600px;
+  max-width: 70vw;
   margin: 0 auto;
   padding: 1rem;
   align-items: stretch; /* Ensures all grid items have equal height */

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
+
 export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
-  const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
