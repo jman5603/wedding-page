@@ -104,6 +104,9 @@ const HoneymoonFund: React.FC = () => {
     lastName: ''
   });
 
+  // Modal to inform users payment processing is disabled
+  const [processingDisabledModalOpen, setProcessingDisabledModalOpen] = useState(true);
+
   const createPaymentIntent = async (amountInCents: number) => {
     const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL || 'http://localhost:3001';
     
@@ -177,7 +180,24 @@ const HoneymoonFund: React.FC = () => {
   return (
     <div className="Page honeymoon-fund-page">
       <p className="title">Honeymoon Fund</p>
-      
+
+      {processingDisabledModalOpen && (
+        <div className="processing-disabled-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="processing-disabled-title">
+          <div className="processing-disabled-modal">
+            <h3 id="processing-disabled-title">Payment Processing Disabled</h3>
+            <p>Credit card processing is currently disabled for the honeymoon fund. We are sorry for any inconvenience this may cause.</p>
+            <p>If you would like to contribute, please utilize the Cash Gift registry item.</p>
+            <button
+              className="close-button"
+              onClick={() => setProcessingDisabledModalOpen(false)}
+              aria-label="Close"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="honeymoon-content">
         <div className="honeymoon-description">
           <h2>Help Us Create Magical Memories</h2>
@@ -294,6 +314,9 @@ const HoneymoonFund: React.FC = () => {
                 onClick={handleSetAmount}
                 className="set-amount-button"
                 type="button"
+                disabled
+                title="Credit card processing is currently disabled"
+                style={{ opacity: 0.6, cursor: 'not-allowed' }}
               >
                 Continue to Payment
               </button>

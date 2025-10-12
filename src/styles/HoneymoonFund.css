@@ -218,6 +218,41 @@
   color: #333;
 }
 
+/* Processing Disabled Modal Styles */
+.processing-disabled-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.processing-disabled-modal {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.processing-disabled-modal h3 {
+  margin-top: 0;
+}
+
+.processing-disabled-modal .close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #5469d4;
+  color: white;
+  cursor: pointer;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .honeymoon-fund-page .honeymoon-content {
