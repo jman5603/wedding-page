@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Travel from './pages/Travel';
 import CompletionPage from './pages/CompletionPage';
 import HoneymoonFund from './pages/HoneymoonFund';
+import EmailPage from './pages/EmailPage';
 
 // Stripe public key from environment variables
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
@@ -80,6 +81,7 @@ function App() {
           <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
           <Route path="/completion" element={<RequireAuth><CompletionPage /></RequireAuth>} />
           <Route path="/honeymoon-fund" element={<RequireAuth><HoneymoonFund /></RequireAuth>} />
+          <Route path="/send-guest-message" element={<RequireAuth><EmailPage /></RequireAuth>} />
         </Routes>
         {/* <Routes>
           <Route path="/" element={<Home />} />
