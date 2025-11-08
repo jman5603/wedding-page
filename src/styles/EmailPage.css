@@ -1,0 +1,80 @@
+/* EmailPage styles */
+.email-page .email-container {
+  max-width: 760px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.email-page h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.email-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.email-form input[type="text"],
+.email-form input[type="email"],
+.email-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.email-form textarea {
+  font-family: inherit;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.send-button {
+  background: #5469d4;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.send-button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-message {
+  margin-top: 0.5rem;
+  color: #1f7a1f;
+}
+
+.error-message {
+  margin-top: 0.5rem;
+  color: #c0392b;
+}
+
+@media (max-width: 600px) {
+  .email-page .email-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
