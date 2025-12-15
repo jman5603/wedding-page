@@ -26,7 +26,14 @@ const Wedding: React.FC = () => (
 
       <section className="schedule">
         <h3>Ceremony & Reception Schedule</h3>
-        <p><strong>Schedule will be finalized closer to the date</strong> - please check back for updates.</p>
+          <h3>Day-of Schedule</h3>
+          <ul className="key-schedule">
+            <li><strong>Ceremony:</strong> 3:30 PM</li>
+            <li><strong>Cocktail Hour:</strong> 4:00–5:00 PM</li>
+            <li><strong>Reception:</strong> 5:00 PM</li>
+            <li><strong>Dinner:</strong> 5:30 PM</li>
+          </ul>
+          <p className="note">Please arrive on time — the ceremony begins promptly at 3:30 PM.</p>
       </section>
 
       <section className="practical-info">
