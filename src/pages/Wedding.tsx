@@ -28,16 +28,16 @@ const Wedding: React.FC = () => (
         <h3>Ceremony & Reception Schedule</h3>
           <ul className="key-schedule">
             <li><strong>Ceremony:</strong> 3:30 PM</li>
-            <li><strong>Cocktail Hour:</strong> 4:00–5:00 PM</li>
+            <li><strong>Cocktail Hour:</strong> 4:00-5:00 PM</li>
             <li><strong>Reception:</strong> 5:00 PM</li>
             <li><strong>Dinner:</strong> 5:30 PM</li>
           </ul>
-          <p className="note">Please arrive on time — the ceremony begins promptly at 3:30 PM.</p>
+          <p className="note">Please arrive on time - the ceremony begins promptly at 3:30 PM.</p>
       </section>
 
       <section className="practical-info">
         <h3>Dress Code</h3>
-        <p>Semi-formal attire. We recommend warm layers for outdoor photos — Michigan evenings in December can be chilly. The colors we have chosen for our wedding are pink and green, so feel free to include these colors in your outfit. (Please no velvet materials)</p>
+        <p>Semi-formal attire. We recommend warm layers for outdoor photos - Michigan evenings in December can be chilly. The colors we have chosen for our wedding are pink and green, so feel free to include these colors in your outfit. (Please no velvet materials)</p>
 
         <h3>Parking & Transportation</h3>
         <p>On-site parking is available at the Lincoln Event Center.</p>
