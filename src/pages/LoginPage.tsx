@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/LoginPage.css';
 
 const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
@@ -34,21 +35,25 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div style={{ maxWidth: 300, margin: '2rem auto', textAlign: 'center' }}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          placeholder="Enter password"
-          style={{ width: '100%', marginBottom: 8 }}
-        />
-        <button type="submit" disabled={loading} style={{ width: '100%' }}>
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
-      {error && <div style={{ color: 'red', marginTop: 8 }}>{error}</div>}
+    <div className="Page login-page">
+      <div className="login-container">
+        <h2 className="login-title">Login</h2>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Enter password"
+              className="login-input"
+            />
+          </div>
+          <button type="submit" disabled={loading} className="login-button">
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </form>
+        {error && <div className="error-message">{error}</div>}
+      </div>
     </div>
   );
 };
