@@ -4,6 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import RequireAuth from './components/RequireAuth';
+import EditableLink from './components/EditableLink';
 import OurStory from './pages/OurStory';
 import Wedding from './pages/Wedding';
 import Registry from './pages/Registry';
@@ -51,8 +52,8 @@ const NavBar: React.FC = () => {
           <Link className='navbar-link' to="/ourstory" onClick={closeMenu}>Our Story</Link>
           <Link className='navbar-link' to="/wedding" onClick={closeMenu}>Wedding</Link>
           <Link className='navbar-link' to="/registry" onClick={closeMenu}>Registry</Link>
-          <Link className='navbar-link' to="/travel" onClick={closeMenu}>Travel</Link>
-          <Link className='navbar-link' to="/rsvp" onClick={closeMenu}>RSVP</Link>
+          <EditableLink to="/travel" text="Travel" styleType='link' disabled={true} />
+          <EditableLink to="/rsvp" text="RSVP" styleType='link' disabled={true} />
         </div>
 
         {/* Overlay for mobile menu */}
@@ -75,12 +76,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ourstory" element={<OurStory />} />
-          <Route path="/wedding" element={<RequireAuth><Wedding /></RequireAuth>} />
+          <Route path="/wedding" element={<Wedding />} />
           <Route path="/registry" element={<Registry />} />
-          <Route path="/travel" element={<RequireAuth><Travel /></RequireAuth>} />
-          <Route path="/rsvp" element={<RequireAuth><RSVP /></RequireAuth>} />
-          <Route path="/completion" element={<RequireAuth><CompletionPage /></RequireAuth>} />
-          <Route path="/honeymoon-fund" element={<RequireAuth><HoneymoonFund /></RequireAuth>} />
+          <Route path="/travel" element={<Travel />} />
+          <Route path="/rsvp" element={<RSVP />} />
+          <Route path="/completion" element={<CompletionPage />} />
+          <Route path="/honeymoon-fund" element={<HoneymoonFund />} />
           <Route path="/send-guest-message" element={<RequireAuth><EmailPage /></RequireAuth>} />
         </Routes>
       </Elements>

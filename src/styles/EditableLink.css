@@ -19,6 +19,17 @@
   color: #bfa6a0;
   border-color: #4e595e;
 }
+.editable-link-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+.editable-link-btn.disabled:hover, .editable-link-btn.disabled:focus {
+  background: transparent;
+  color: #999;
+  border-color: #ccc;
+}
 
 .editable-link-text {
   display: inline-block;
@@ -37,4 +48,12 @@
 .editable-link-text:hover, .editable-link-text:focus {
   color: #bfa6a0;
   text-decoration: underline;
+}
+.editable-link-text.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.editable-link-text.disabled:hover, .editable-link-text.disabled:focus {
+  color: #4e595e;
+  text-decoration: none;
 }
