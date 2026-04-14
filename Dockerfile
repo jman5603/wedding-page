@@ -12,11 +12,11 @@ ENV REACT_APP_STRIPE_PUBLISHABLE_KEY=$REACT_APP_STRIPE_PUBLISHABLE_KEY
 RUN npm run build
 
 # Stage 1 - Serve Frontend Assets
-FROM fholzer/nginx-brotli:v1.24.0
+FROM nginx:alpine
 
 WORKDIR /etc/nginx
 ADD nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 443
-CMD ["-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
